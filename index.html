@@ -1,65 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ninja Ken's Page</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>FizzBuzz</title>
+    <style>
+      #output {
+        font-family: monospace;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+      }
+
+      .invalid {
+        color: red;
+      }
+    </style>
   </head>
   <body>
-    <div class="slider-container">
-      <div class="slider-item fade">
-        <img src="images/ninjaken.png" />
-      </div>
+    <h1>FizzBuzz</h1>
 
-      <div class="slider-item fade">
-        <img src="images/gurudomba.png" />
-      </div>
+    <label for="numInput">Enter a number:</label>
+    <input type="number" id="numInput" min="0" step="1" />
+    <button onclick="checkFizzBuzz()">Check FizzBuzz</button>
 
-      <div class="slider-item fade">
-        <img src="images/happy-ninjaken.png" />
-      </div>
+    <div id="output"></div>
 
-      <div class="slider-item fade">
-        <img src="images/gurudomba-flying.png" />
-      </div>
+    <script>
+      function checkFizzBuzz() {
+        var input = document.getElementById("numInput");
+        var outputDiv = document.getElementById("output");
 
-      <a class="prev" onclick="updateSlide(-1)">&#10094;</a>
-      <a class="next" onclick="updateSlide(1)">&#10095;</a>
-    </div>
-    <h1>Halo, Nama saya Ninja Ken!</h1>
-    <button id="openModalButton">Lihat Detail</button>
-    <div id="myModal">
-      <div id="modalContent">
-        <span id="closeModalIcon">&times;</span>
-        <h2>Halo teman-teman!</h2>
-        <p>Saya sekarang belajar Frontend Developer Course.</p>
-        <p>Ayo menjadi seorang Frontend Developer!</p>
-      </div>
-    </div>
+        outputDiv.innerHTML = "";
 
-    <h2>Accordion</h2>
-    <button class="accordion">Section 1</button>
-    <div class="panel">
-      <p>Ninja Ken</p>
-      <p>Guru Domba</p>
-      <p>Bayi Ben</p>
-    </div>
+        var num = parseInt(input.value, 10);
 
-    <button class="accordion">Section 2</button>
-    <div class="panel">
-      <p>Ninja Ken</p>
-      <p>Guru Domba</p>
-      <p>Bayi Ben</p>
-    </div>
+        if (isNaN(num)) {
+          var errorP = document.createElement("p");
+          errorP.textContent = "Error: Masukkan angkanya woe!";
+          errorP.classList.add("invalid");
+          outputDiv.appendChild(errorP);
+          return;
+        }
 
-    <button class="accordion">Section 3</button>
-    <div class="panel">
-      <p>Ninja Ken</p>
-      <p>Guru Domba</p>
-      <p>Bayi Ben</p>
-    </div>
+        if (num === 0) {
+          var invalidP = document.createElement("p");
+          invalidP.textContent = "Invalid Input!";
+          invalidP.classList.add("invalid");
+          outputDiv.appendChild(invalidP);
+          return;
+        }
 
-    <script src="script.js"></script>
+        var outputText = "";
+
+        if (num % 3 === 0) {
+          outputText += "Fizz";
+        }
+
+        if (num % 5 === 0) {
+          outputText += "Buzz";
+        }
+
+        if (outputText === "") {
+          outputText = num;
+        }
+
+        var resultP = document.createElement("p");
+        resultP.textContent = outputText;
+        outputDiv.appendChild(resultP);
+      }
+    </script>
   </body>
 </html>
