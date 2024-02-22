@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ninja Ken's Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider-item fade">
+        <img src="images/ninjaken.png" />
+      </div>
+
+      <div class="slider-item fade">
+        <img src="images/gurudomba.png" />
+      </div>
+
+      <div class="slider-item fade">
+        <img src="images/happy-ninjaken.png" />
+      </div>
+
+      <div class="slider-item fade">
+        <img src="images/gurudomba-flying.png" />
+      </div>
+
+      <a class="prev" onclick="updateSlide(-1)">&#10094;</a>
+      <a class="next" onclick="updateSlide(1)">&#10095;</a>
+    </div>
+    <h1>Halo, Nama saya Ninja Ken!</h1>
+    <button id="openModalButton">Lihat Detail</button>
+    <div id="myModal">
+      <div id="modalContent">
+        <span id="closeModalIcon">&times;</span>
+        <h2>Halo teman-teman!</h2>
+        <p>Saya sekarang belajar Frontend Developer Course.</p>
+        <p>Ayo menjadi seorang Frontend Developer!</p>
+      </div>
+    </div>
+
+    <h2>Accordion</h2>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+      <p>Ninja Ken</p>
+      <p>Guru Domba</p>
+      <p>Bayi Ben</p>
+    </div>
+
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+      <p>Ninja Ken</p>
+      <p>Guru Domba</p>
+      <p>Bayi Ben</p>
+    </div>
+
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+      <p>Ninja Ken</p>
+      <p>Guru Domba</p>
+      <p>Bayi Ben</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
